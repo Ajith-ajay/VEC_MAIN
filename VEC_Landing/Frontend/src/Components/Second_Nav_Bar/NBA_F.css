@@ -1,0 +1,127 @@
+
+
+/* Tiles Container */
+.nba-tiles {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.nba-tile-container {
+
+  display: flex;
+  gap: 20px;
+  width:90%;
+}
+
+/* Individual Tile Styles */
+.nba-tile {
+  position: relative;
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  text-align: justify;
+  border-left: 4px solid #FDCC03;
+  font-family: "Poppins", sans-serif;
+ 
+}
+
+/* Tail Design - Positioned Side by Side */
+
+
+/* Tile Header */
+.nba-tile-header {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #FDCC03;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Tile Text */
+.nba-tile-text {
+  font-size: 16px;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Department & Year Selection */
+.nba-depts, .nba-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.nba-dept-button, .nba-year-button {
+  min-width: 160px;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #FDCC03;
+  color: #800000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  
+  cursor: pointer;
+}
+.nba-dept-button:hover, .nba-year-button:hover{
+  background-color:#800000;
+
+  color:white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+
+} 
+
+
+.nba-dept-button.active, .nba-year-button.active {
+  background-color: #333;
+  color:white;
+  
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nba-dept-button:hover, .nba-year-button:hover {
+ 
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* PDF Container */
+.nba-pdf-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.embed {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nba-tile-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nba-tile {
+    padding: 15px;
+  }
+  .nba-dept-button, .nba-year-button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
