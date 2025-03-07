@@ -16,7 +16,8 @@ async function getPassDetails (req, res) {
             $or: [
                 { wardern_approval: true },
                 { superior_wardern_approval: true }
-            ]
+            ],
+            re_entry_time: { $eq: null}
         });
         
         if (!pass_data) {
@@ -103,12 +104,6 @@ async function passAccept (req, res) {
                     }
                 }
             );
-            await sendParentReachedSMS(
-                student_data.phone_number_parent, 
-                pass_details.name, 
-                reEntryTime.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
-            );
-
             return res.status(200).json({
                 message: "Re-entry time updated successfully",
                 pass_id: pass_id,

@@ -6,7 +6,6 @@ import { Plane } from '@react-three/drei';
 import "./Hostel_Login.css"
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import showSweetAlert from './Alert';
 
 function SkyBox() {
   const mesh = useRef(null);

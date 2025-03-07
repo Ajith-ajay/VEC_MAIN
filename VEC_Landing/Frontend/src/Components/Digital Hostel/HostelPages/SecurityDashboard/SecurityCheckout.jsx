@@ -493,7 +493,7 @@ console.log(passId);
           </div>
 
           {/* Remarks */}
-          {passDetails.parent_approval !== null && (
+          {passDetails.comment !== null && (
             <div className="remarks-section">
               <label>Warden Notes</label>
               {/* <textarea rows={2} placeholder="Add your remarks here..." /> */}
