@@ -400,10 +400,10 @@ const Head = () => {
                     </div>
                 </div>
                 <div className='hidden lg:flex px-4 pb-1.5 font-popp bg-secd dark:bg-drks text-text dark:text-drkt
-                     z-10 w-full max-h-[2.5rem] rounded-b-lg transition-all'>
+                    gap-3 z-10 w-full max-h-[2.5rem] rounded-b-lg transition-all'>
                     {/*<EnvelopeIcon className='size-5 inline -mr-2 mt-1'></EnvelopeIcon><p className='truncate mt-1 h-fit lg:block hidden'>{hdrs[0]}</p>*/}
                     {/*<PhoneIcon className='size-5 inline -mr-2 mt-1'></PhoneIcon><p className='truncate mt-1 h-fit lg:block hidden'>{hdrs[1]}</p>*/}
-                    <button onClick={() => navigate('/nba')} className='h-fit md:block hidden'>{hdrs[2]}</button>
+                    <button onClick={() => navigate('/nba')} className=' mt-1 h-fit md:block hidden'>{hdrs[2]}</button>
                     <button onClick={() => navigate('/naac')} className=' mt-1 h-fit md:block hidden'>{hdrs[3]}</button>
                     <button onClick={() => navigate('/nirf')} className=' mt-1 h-fit md:block hidden'>{hdrs[4]}</button>
                     <button onClick={() => navigate('/iic')} className=' mt-1 h-fit md:block hidden'>{hdrs[5]}</button>
