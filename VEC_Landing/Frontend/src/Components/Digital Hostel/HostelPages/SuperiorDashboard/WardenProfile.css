@@ -12,7 +12,7 @@
   margin: 0 auto;
 }
 
-.warden-card {
+.hos-warden-card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -21,15 +21,15 @@
   border-left: 4px solid #fdcc03;
 }
 
-.warden-card:hover {
+.hos-warden-card:hover {
   transform: translateY(-4px);
 }
 
-.warden-card.boys {
+.hos-warden-card.boys {
   border-color: #fdcc03;
 }
 
-.warden-card.girls {
+.hos-warden-card.girls {
   border-color: #1c1c1f;
 }
 

@@ -57,6 +57,8 @@ const HostelHeader = () => {
             <h1 className="text-[1.7vmax] font-semibold text-amber-800">Digital Hostel Management System</h1>
           </div>
         </div>
+          <div className='hidden lg:flex px-4 pb-1.5 font-popp bg-secd dark:bg-drks text-text dark:text-drkt
+                     z-10 w-full max-h-[2.5rem] rounded-b-lg transition-all'></div>
       </nav>
     </>
   )

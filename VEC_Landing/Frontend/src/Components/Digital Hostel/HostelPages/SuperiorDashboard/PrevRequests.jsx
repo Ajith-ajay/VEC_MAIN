@@ -3,6 +3,7 @@ import { Search, X, FileText, Filter } from 'lucide-react';
 import './SuperiorRequest.css';
 import HostelSidebar from '../HostelSidebar';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function PrevRequest() {
   const [records, setRecords] = useState([]);
@@ -14,6 +15,7 @@ function PrevRequest() {
   const [selectedWarden,setSelectedWarden] = useState(null);
   const [isMedical, setIsMedical] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [wardendata, setWardens] = useState(null)
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [filters, setFilters] = useState({ year: '', department: '', passType: '', search: '', date: '', status: '', warden: '' });
 
@@ -49,6 +51,26 @@ function PrevRequest() {
     '4': 'Fourth ',
     'overall': 'Overall' 
   };
+
+  useEffect(() => {
+    const fetchWardens = async () => {
+      try {
+        const response = await axios.get("/api/fetch_warden_details");
+        const fetchedWardens = response.data.wardens;
+
+        const formattedWardens = fetchedWardens.map((warden) => ({
+          id: warden.unique_id,
+          name: warden.warden_name,
+        }));  
+
+        setWardens(formattedWardens);
+      } catch (err) {
+        console.error("Error fetching warden data", err);
+      }
+    };
+
+    fetchWardens();
+  }, []);
 
   const handleGenderFilter = (gender) => {
     const newGender = activeGender === gender ? '' : gender; // Toggle selection
@@ -101,6 +123,12 @@ function PrevRequest() {
     fetchPendingPasses(selectedDate);
 
   },[selectedDate])
+
+    // Get unique warden IDs from the fetched pass details
+    const uniqueWardenIds = [...new Set(records.map(record => record.authorised_warden_id))];
+
+    // Filter wardens based on the unique IDs
+    const filteredWardens = wardendata?.filter(warden => uniqueWardenIds.includes(warden.id));
   
   const filteredRecords = records.filter(record => {
     const searchQuery = filters.search.toLowerCase();
@@ -216,8 +244,11 @@ function PrevRequest() {
 
             <select className="AR-filter-select" onChange={(e) => {setFilters(prev => ({ ...prev, warden: e.target.value })); setSelectedWarden(e.target.value)}}>
                 <option value="">All Wardens</option>
-                <option value="001">Warden 1</option>
-                <option value="002">Warden 2</option>
+                {filteredWardens?.map((warden) => (
+                <option key={warden.id} value={warden.id}>
+                  {warden.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -254,9 +285,15 @@ function PrevRequest() {
         <td>{passTypeLabels[record.passtype] || record.passtype}</td>
         <td>{new Date(record.from).toLocaleDateString('en-GB').replace(/\//g, ' - ')}</td>
           <td>
-            <span className={`AR-status-circle ${getStatusClass(record.wardern_approval)}`}>
-              {record.parent_approval ? "Accepted" : "Declined"}
+            {record.wardern_approval === null ? (
+              <span className={`AR-status-circle ${getStatusClass(record.superior_wardern_approval)}`}>
+              {record.superior_wardern_approval ? "Accepted (SW)" : "Declined (SW)"}
             </span>
+            ) : (
+              <span className={`AR-status-circle ${getStatusClass(record.wardern_approval)}`}>
+                {record.wardern_approval ? "Accepted (W)" : "Declined (W)"}
+              </span>
+            )}
           </td>
           <td>
             <span className={`AR-status-circle ${getStatusClass(record.parent_approval)}`}>

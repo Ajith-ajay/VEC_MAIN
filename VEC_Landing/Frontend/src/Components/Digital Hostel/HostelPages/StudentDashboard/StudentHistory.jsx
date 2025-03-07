@@ -75,7 +75,7 @@ const StudentHistory = () => {
 
   const handleEditClick = (passid, event) => {
     event.stopPropagation();
-    navigate('/student/request', { state: { passid } })
+    navigate('/hostel/student/request', { state: { passid } })
   }
 
   const downloadImage = (url, filename) => {

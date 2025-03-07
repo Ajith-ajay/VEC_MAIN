@@ -493,7 +493,7 @@ console.log(passId);
           </div>
 
           {/* Remarks */}
-          {passDetails.parent_approval === null && (
+          {passDetails.parent_approval !== null && (
             <div className="remarks-section">
               <label>Warden Notes</label>
               {/* <textarea rows={2} placeholder="Add your remarks here..." /> */}
@@ -504,7 +504,10 @@ console.log(passId);
           {/* Action Buttons */}
           <div className="action-buttons">
             {passDetails.exit_time !== null ? (
-              <button className="accept-button" onClick={() => handlePassAction("accept")}>
+              <button className="accept-button" onClick={() => {
+                handlePassAction("accept");
+                setShowPopup(false);
+              }}>
                 Re Entry Confirmed
               </button>
             ) : (

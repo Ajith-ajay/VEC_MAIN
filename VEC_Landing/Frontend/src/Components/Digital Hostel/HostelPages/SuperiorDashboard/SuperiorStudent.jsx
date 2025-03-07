@@ -4,6 +4,7 @@ import './SuperiorStudent.css';
 import axios from 'axios';
 import showSweetAlert from '../Alert';
 import DownloadPdf from '../pdf';
+import Swal from 'sweetalert2';
 
 function StudentTile({ student, onSave ,onDelete, format}) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -258,15 +259,25 @@ function SuperiorStudent() {
       });
   
       if (response.ok) {
-        showSweetAlert("Success!", "Student data deleted successfully.", "success");
+        Swal.fire({
+          title: "Success!",
+          text: "Student data deleted successfully.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+          willClose: () => {
+            Swal.close();
+          },
+        });
       } else {
-        alert("Failed to delete student.");
+        // alert("Failed to delete student.");
+        showSweetAlert("Error","Error Deleting The Student try Again Later",'error');
       }
     } catch (error) {
       console.error("❌ Error deleting student:", error);
-      alert("Error deleting student. Try again.");
+      // alert("Error deleting student. Try again.");
+      showSweetAlert("Error","Error Deleting The Student try Again Later",'error');
     }
-    window.location.reload();
   };
 
 
@@ -411,7 +422,8 @@ function SuperiorStudent() {
       });
   
       if (response.status === 200) {
-        alert("Sucessfully Updated");
+        // alert("Sucessfully Updated");
+        showSweetAlert("Success","Student Profile Updated Successfully",'error');
         setStudents((prevStudents) =>
           prevStudents?.[selectedGender]?.map((student) =>
             student.id === originalStudent.id ? { ...student, ...updateFields } : student

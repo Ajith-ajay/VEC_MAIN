@@ -203,10 +203,10 @@ function WardenRequest() {
             </select>
 
             <div className='navigate-button'>
-              <button onClick={() => navigate('/warden/request/Food-Change-Request')} className='Food-Request-button'>
+              <button onClick={() => navigate('/hostel/warden/request/Food-Change-Request')} className='Food-Request-button'>
                 Food Type Requests
               </button>
-              <button onClick={() => navigate('/warden/request/pass-log-history')} className='Food-Request-button'>
+              <button onClick={() => navigate('/hostel/warden/request/pass-log-history')} className='Food-Request-button'>
                 Pass Log History
               </button>
             </div>

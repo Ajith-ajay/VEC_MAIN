@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight } from 'lucide-react';
 import './ProfileChangeRequest.css';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function SuperiorRequest() {
   const [records, setRecords] = useState([]);
@@ -64,6 +65,16 @@ function SuperiorRequest() {
 
       if (response.ok) {
         setRecords(records.filter(record => record.registration_number !== registration_number));
+        Swal.fire({
+          title: "Updated Successful",
+          text: "Profile request Updated ",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+          willClose: () => {
+            Swal.close();
+          },
+        });
         setSelectedRecord(null);
       }
     } catch (error) {

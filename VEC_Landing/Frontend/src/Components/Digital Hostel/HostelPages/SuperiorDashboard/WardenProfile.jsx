@@ -3,6 +3,7 @@ import { X, Edit, Power, Trash2 } from 'lucide-react';
 import './WardenProfile.css';
 import axios from "axios";
 import showSweetAlert from "../Alert";
+import Swal from "sweetalert2";
 
 const WardenProfile = () => {
   const [wardens, setWardens] = useState([]);
@@ -183,7 +184,16 @@ const WardenProfile = () => {
         });
 
         if (response.status === 201) {
-            alert("Warden added successfully!");
+          Swal.fire({
+            title: "Successful",
+            text: "Warden Added Successfully",
+            icon: "success",
+            timer: 2000,
+            showConfirmButton: false,
+            willClose: () => {
+              Swal.close();
+            },
+          });
             setIsAddModalOpen(false);
             setNewWarden({
                 name: "",
@@ -222,7 +232,8 @@ const WardenProfile = () => {
       if (response.ok) {
         showSweetAlert("Success!", "Warden data deleted successfully.", "success");
       } else {
-        alert("Failed to delete warden.");
+        showSweetAlert("Error","Error Deleting The Warden try Again Later",'error');
+
       }
     } catch (error) {
       console.error("❌ Error deleting warden:", error);
@@ -285,14 +296,16 @@ const WardenProfile = () => {
       });
   
       if (response.status === 200) {
-        alert("Warden details updated successfully!");
+        // alert("Warden details updated successfully!");
+        showSweetAlert("Success","Warden Details Updated Successfully","success");
         window.location.reload(); // Refresh to show updated details
       } else {
-        alert("Failed to update warden details.");
+        // alert("Failed to update warden details.");
+        showSweetAlert("Error","Failed to Update The warden Profile","error")
       }
     } catch (error) {
       console.error("Error updating warden details", error);
-      alert("An error occurred while updating the warden details.");
+      showSweetAlert('Error','An error occurred while updating the warden details.','error');
     }
   
     setIsEditing(false);
@@ -344,7 +357,7 @@ const WardenProfile = () => {
         {wardens?.map(warden => (
           <div
             key={warden.id}
-            className={`warden-card ${warden.inCharge.toLowerCase()}`}
+            className={`hos-warden-card ${warden.inCharge.toLowerCase()}`}
             onClick={(e) => {openModal(warden, e); setPendingToggleId(warden.id);}}
           >
             <div className="warden-content">

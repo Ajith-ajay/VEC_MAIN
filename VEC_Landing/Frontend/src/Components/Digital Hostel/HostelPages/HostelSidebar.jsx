@@ -9,26 +9,26 @@ import Swal from "sweetalert2";
 
 const navItems = {
   student: [
-    { path: "/student/request", label: "Request", icon: <PenSquare className="icon" /> },
-    { path: "/student/previousrequest", label: "Previous Request", icon: <Clock className="icon" /> },
-    { path: "/student/profile", label: "Profile", icon: <User className="icon" /> },
-    { path: "/student/tutorial", label: "Tutorial Page", icon: <BookOpenCheck className="icon" /> },
-    { path: "/student/vacate", label: "Vacate Form", icon: <DoorOpen className="icon" /> },
+    { path: "/hostel/student/request", label: "Request", icon: <PenSquare className="icon" /> },
+    { path: "/hostel/student/previousrequest", label: "Previous Request", icon: <Clock className="icon" /> },
+    { path: "/hostel/student/profile", label: "Profile", icon: <User className="icon" /> },
+    { path: "/hostel/student/tutorial", label: "Tutorial Page", icon: <BookOpenCheck className="icon" /> },
+    { path: "/hostel/student/vacate", label: "Vacate Form", icon: <DoorOpen className="icon" /> },
   ],
   warden: [
-    { path: "/warden/analytics", label: "Analytics", icon: <BarChart3 className="icon" /> },
-    { path: "/warden/attendance", label: "Attendance", icon: <ClipboardCheck className="icon" /> },
-    { path: "/warden/request", label: "Request", icon: <FileText className="icon" /> },
-    { path: "/warden/student", label: "Student", icon: <Users className="icon" /> },
-    { path: "/warden/tutorial", label: "Tutorial Page", icon: <BookOpenCheck className="icon" /> },
+    { path: "/hostel/warden/analytics", label: "Analytics", icon: <BarChart3 className="icon" /> },
+    { path: "/hostel/warden/attendance", label: "Attendance", icon: <ClipboardCheck className="icon" /> },
+    { path: "/hostel/warden/request", label: "Request", icon: <FileText className="icon" /> },
+    { path: "/hostel/warden/student", label: "Student", icon: <Users className="icon" /> },
+    { path: "/hostel/warden/tutorial", label: "Tutorial Page", icon: <BookOpenCheck className="icon" /> },
   ],
   superior: [
-    { path: "/superior/wardens", label: "Wardens", icon: <Users className="icon" /> },
-    { path: "/superior/analytics", label: "Analytics", icon: <BarChart3 className="icon" /> },
-    { path: "/superior/attendance", label: "Attendance", icon: <ClipboardCheck className="icon" /> },
-    { path: "/superior/requests", label: "Requests", icon: <FileText className="icon" /> },
-    { path: "/superior/students", label: "Students", icon: <Users className="icon" /> },
-    { path: "/superior/wardenlogs", label: "Warden Logs", icon: <ScrollText className="icon" /> },
+    { path: "/hostel/superior/wardens", label: "Wardens", icon: <Users className="icon" /> },
+    { path: "/hostel/superior/analytics", label: "Analytics", icon: <BarChart3 className="icon" /> },
+    { path: "/hostel/superior/attendance", label: "Attendance", icon: <ClipboardCheck className="icon" /> },
+    { path: "/hostel/superior/requests", label: "Requests", icon: <FileText className="icon" /> },
+    { path: "/hostel/superior/students", label: "Students", icon: <Users className="icon" /> },
+    { path: "/hostel/superior/wardenlogs", label: "Warden Logs", icon: <ScrollText className="icon" /> },
   ],
 };
 

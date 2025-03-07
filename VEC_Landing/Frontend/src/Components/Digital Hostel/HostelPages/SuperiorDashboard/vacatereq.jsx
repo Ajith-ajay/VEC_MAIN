@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
 import './SuperiorRequest.css';
 import HostelSidebar from '../HostelSidebar';
+import showSweetAlert from '../Alert';
 
 function VacateReq() {
   const [records, setRecords] = useState([]);
@@ -178,8 +179,8 @@ function DetailModal({ record, onClose }) {
         body: JSON.stringify({ student_id: record.registration_number, action: action }),
       });
       const data = await response.json();
-      alert(data.message || data.error);
-      onClose();
+      showSweetAlert("Success",`${data.message}`,'success');
+      
     } catch (error) {
       console.error("Error handling request:", error);
     }

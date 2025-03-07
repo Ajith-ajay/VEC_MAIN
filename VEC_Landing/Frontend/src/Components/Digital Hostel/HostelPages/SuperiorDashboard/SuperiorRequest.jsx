@@ -218,15 +218,15 @@ function SuperiorRequest() {
             </select>
 
             <div className='superior-req-button'>
-              <button onClick={() => navigate('/superior/requests/Profile-Change-Request')} className='profile-change-button'>
+              <button onClick={() => navigate('/hostel/superior/requests/Profile-Change-Request')} className='profile-change-button'>
                 Profile Change Requests
               </button>
 
-              <button onClick={() => navigate('/superior/requests/vacate')} className='profile-change-button'>
+              <button onClick={() => navigate('/hostel/superior/requests/vacate')} className='profile-change-button'>
                 Vacate Requests
               </button>
 
-              <button onClick={() => navigate('/superior/requests/Prev-Requests')} className='prev-requests-button'>
+              <button onClick={() => navigate('/hostel/superior/requests/Prev-Requests')} className='prev-requests-button'>
                Pass Log History
               </button>
             </div>

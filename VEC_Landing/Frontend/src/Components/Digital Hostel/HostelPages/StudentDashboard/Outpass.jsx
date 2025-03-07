@@ -198,7 +198,7 @@ const handleUpdatePass = async () => {
                 showConfirmButton: false,
                 willClose: () => {
                   Swal.close();
-                  navigate('/student/previousrequest');
+                  navigate('/hostel/student/previousrequest');
                 },
               });
     } else {
@@ -427,7 +427,6 @@ const handleUpdatePass = async () => {
       const data = await response.json();
   
       if (response.ok) {
-        alert("✅ Pass Saved as Draft");
         showSweetAlert('Success', "✅ Pass Saved as Draft", 'success')
       } else {
         showSweetAlert("Error!",`❌ Error: ${data.error}`,"error")
@@ -695,9 +694,9 @@ const handleUpdatePass = async () => {
                   </button>
                 ) : (
                   <>
-                    <button className="HS-button HS-button-parent" onClick={handleParentApproval}>
+                    {/* <button className="HS-button HS-button-parent" onClick={handleParentApproval}> 
                       Parent Approval
-                    </button>
+                    </button> */}
                     <button className="HS-button HS-button-warden" onClick={handleWardenApproval}>
                       Warden Approval
                     </button>
